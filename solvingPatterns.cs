@@ -32,6 +32,27 @@ namespace DSAWorkshop
             return true;
         }
 
+        public static bool IsAnagram(string s, string t)
+        {
+            Dictionary<char, int> sCount = new Dictionary<char, int>();
+            Dictionary<char, int> tCount = new Dictionary<char, int>();
+
+            if (s.Length != t.Length) return false;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                sCount[s[i]] = sCount.GetValueOrDefault(s[i]) + 1;
+                tCount[t[i]] = tCount.GetValueOrDefault(t[i]) + 1;
+            }
+
+            foreach (var kvp in sCount)
+            {
+                if (!tCount.ContainsKey(kvp.Key) || tCount[kvp.Key] != kvp.Value) return false;
+            }
+
+            return true;
+        }
+
     }
 
     public static class MultiPointerPattern

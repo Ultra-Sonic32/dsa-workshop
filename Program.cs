@@ -17,6 +17,7 @@ namespace DSAWorkshop
             Console.WriteLine("2. Sum Value");
             Console.WriteLine("3. Count Alphanumeric Characters");
             Console.WriteLine("4. Value array and corresponding squared array matches");
+            Console.WriteLine("5. Is Valid Anagram");
 
             string? choice = Console.ReadLine();
 
@@ -54,6 +55,15 @@ namespace DSAWorkshop
                     int[]? squareArray = ReadIntArrayFromConsole("Enter squares like 1,4,9");
                     bool ok = FrequencyPattern.sameSquared(valueArray, squareArray);
                     Console.WriteLine(ok ? "Matched" : "Invalid");
+                    break;
+                
+                case "5":
+                    Console.WriteLine("Enter a first string");
+                    string? firstString = Console.ReadLine();
+                    Console.WriteLine("Enter a second string");
+                    string? secondString = Console.ReadLine();
+                    bool isAnagram = FrequencyPattern.IsAnagram(firstString, secondString);
+                    Console.WriteLine(isAnagram ? "Valid Anagram" : "Not an Anagram");
                     break;
 
                 default:
