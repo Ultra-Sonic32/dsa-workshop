@@ -32,6 +32,7 @@ namespace DSAWorkshop
             return true;
         }
 
+        // Function to test if two string are anagrams of eachother
         public static bool IsAnagram(string s, string t)
         {
             Dictionary<char, int> sCount = new Dictionary<char, int>();
@@ -57,6 +58,29 @@ namespace DSAWorkshop
 
     public static class MultiPointerPattern
     {
+
+        // Function which accepts a sorted array of integers. The function should find the first pair where the sum is 0;
+        // return array of values that sum to zero or undefined if no pair
+        //The naive approach is using a nested for loop and not two pointers
+        public static int[]? sumZeroNaive(int[] sortedIntegers)
+        {
+            if (sortedIntegers is null || sortedIntegers.Length < 2) return null;
+
+            int[] pair = new int[2];
+
+            for (int i = 0; i < sortedIntegers.Length - 1; i++)
+            {
+                for (int j = i + 1; j < sortedIntegers.Length; j++)
+                {
+                    if (sortedIntegers[i] + sortedIntegers[j] == 0)
+                    {
+                        return new[] { sortedIntegers[i], sortedIntegers[j] };
+                    }
+                }
+            }
+
+            return null;
+        }
         
     }
 }

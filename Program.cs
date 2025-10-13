@@ -18,6 +18,7 @@ namespace DSAWorkshop
             Console.WriteLine("3. Count Alphanumeric Characters");
             Console.WriteLine("4. Value array and corresponding squared array matches");
             Console.WriteLine("5. Is Valid Anagram");
+            Console.WriteLine("6. SumZero");
 
             string? choice = Console.ReadLine();
 
@@ -64,6 +65,12 @@ namespace DSAWorkshop
                     string? secondString = Console.ReadLine();
                     bool isAnagram = FrequencyPattern.IsAnagram(firstString, secondString);
                     Console.WriteLine(isAnagram ? "Valid Anagram" : "Not an Anagram");
+                    break;
+                
+                case "6":
+                    int[]? sortedValueArray = ReadIntArrayFromConsole("Enter Sorted Array like -1, -2, 0, 1, 3");
+                    var pair = MultiPointerPattern.sumZeroNaive(sortedValueArray);
+                    Console.WriteLine(pair is null ? "No pair" : $"[{pair[0]}, {pair[1]}]");
                     break;
 
                 default:
