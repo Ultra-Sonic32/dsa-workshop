@@ -57,7 +57,7 @@ namespace DSAWorkshop
                     bool ok = FrequencyPattern.sameSquared(valueArray, squareArray);
                     Console.WriteLine(ok ? "Matched" : "Invalid");
                     break;
-                
+
                 case "5":
                     Console.WriteLine("Enter a first string");
                     string? firstString = Console.ReadLine();
@@ -66,11 +66,18 @@ namespace DSAWorkshop
                     bool isAnagram = FrequencyPattern.IsAnagram(firstString, secondString);
                     Console.WriteLine(isAnagram ? "Valid Anagram" : "Not an Anagram");
                     break;
-                
+
                 case "6":
                     int[]? sortedValueArray = ReadIntArrayFromConsole("Enter Sorted Array like -1, -2, 0, 1, 3");
+                    stopwatch.Start();
                     var pair = MultiPointerPattern.sumZeroNaive(sortedValueArray);
+                    //var pairTwoPointer = MultiPointerPattern.sumZeroTwoPointer(sortedValueArray);
                     Console.WriteLine(pair is null ? "No pair" : $"[{pair[0]}, {pair[1]}]");
+                    //Console.WriteLine(pairTwoPointer is null ? "No pair" : $"[{pairTwoPointer[0]}, {pairTwoPointer[1]}]");
+                    stopwatch.Stop();
+                    TimeSpan elapsedTimeSpanZeroSum = stopwatch.Elapsed;
+                    Console.WriteLine($"Elapsed time (TimeSpan): {elapsedTimeSpanZeroSum.TotalMilliseconds} milliseconds");
+
                     break;
 
                 default:
@@ -79,8 +86,8 @@ namespace DSAWorkshop
             }
 
         }
-        
-         private static int[] ReadIntArrayFromConsole(string prompt)
+
+        private static int[] ReadIntArrayFromConsole(string prompt)
         {
             Console.WriteLine(prompt);
             string? line = Console.ReadLine();

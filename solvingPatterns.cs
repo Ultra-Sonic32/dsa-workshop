@@ -81,6 +81,35 @@ namespace DSAWorkshop
 
             return null;
         }
-        
+
+        public static int[]? sumZeroTwoPointer(int[] sortedIntegers)
+        {
+            int left = 0;
+            int right = sortedIntegers.Length - 1;
+
+            while (left < right)
+            {
+                int sum = sortedIntegers[left] + sortedIntegers[right];
+
+                if (sum == 0)
+                {
+                    return new[] { sortedIntegers[left], sortedIntegers[right] };
+                }
+                else if (sum > 0)
+                {
+                    right--;
+                }
+                else
+                {
+                    left++;
+                }
+            }
+
+            return null;
+        }
+
+        public static int countUniqueValues(int[] sortedIntegers) {
+            
+        }
     }
 }
