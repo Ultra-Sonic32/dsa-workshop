@@ -108,8 +108,31 @@ namespace DSAWorkshop
             return null;
         }
 
-        public static int countUniqueValues(int[] sortedIntegers) {
-            
+        // counts the unique values in the array like  array 1, 2,3,3,6, 7 will have  5 unique values we going to use two pointer hashmap with count key can also work
+        public static int countUniqueValues(int[] sortedIntegers)
+        {
+            int i = 0;
+            int j = i + 1;
+
+            if (sortedIntegers is null || sortedIntegers.Length == 0) return 0;
+            if (sortedIntegers.Length == 1) return 1;
+
+            while (j < sortedIntegers.Length)
+            {
+                if (sortedIntegers[i] == sortedIntegers[j])
+                {
+                    j++;
+                }
+                else
+                {
+                    sortedIntegers[i + 1] = sortedIntegers[j];
+                    i++;
+                    j++;
+                }
+            }
+
+            return i + 1;
+
         }
     }
 }
